@@ -54,7 +54,7 @@ public class RichTextEditor: UIView, WKScriptMessageHandler, WKNavigationDelegat
         }
     }
 
-    private var editorView: WKWebView!
+    public var editorView: WKWebView!
     private let placeholderLabel = UILabel()
 
     public override init(frame: CGRect = .zero) {
@@ -120,7 +120,8 @@ public class RichTextEditor: UIView, WKScriptMessageHandler, WKNavigationDelegat
         super.init(coder: aDecoder)
     }
 
-    public func userContentController(_ userContentController: WKUserContentController, didReceive message: WKScriptMessage) {
+    public func userContentController(_ userContentController: WKUserContentController,
+                                      didReceive message: WKScriptMessage) {
         switch message.name {
         case RichTextEditor.textDidChange:
             guard let body = message.body as? String else { return }

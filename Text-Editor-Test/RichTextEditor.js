@@ -6,6 +6,15 @@ richeditor.insertText = function(text) {
     window.webkit.messageHandlers.heightDidChange.postMessage(document.body.offsetHeight);
 }
 
+richeditor.setBold = function () {
+    document.execCommand('bold');
+}
+
+richeditor.setItalics = function () {
+    document.execCommand('italic');
+}
+
+
 editor.addEventListener("input", function() {
     window.webkit.messageHandlers.textDidChange.postMessage(editor.innerHTML);
 }, false)
